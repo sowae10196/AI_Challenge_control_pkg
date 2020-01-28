@@ -44,7 +44,7 @@ int main(int argc, char **argv)
             ("mavros/set_mode");
 
     ros::Subscriber local_waypoint_sub = nh2.subscribe<geometry_msgs::PoseStamped>
-            ("test_", 10, local_waypoint_cb);
+            ("waypoint_", 10, local_waypoint_cb);
 
     //the setpoint publishing rate MUST be faster than 2Hz
     ros::Rate rate(20.0);

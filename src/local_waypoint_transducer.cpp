@@ -6,7 +6,7 @@ int main(int argc, char** argv){
     ros::NodeHandle nh;
 
     ros::Publisher local_waypoint_pub = nh.advertise<geometry_msgs::PoseStamped>
-            ("test_", 10);
+            ("waypoint_", 10);
     ros::Rate loop_rate(10);
     geometry_msgs::PoseStamped msg;
 

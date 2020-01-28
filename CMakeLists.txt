@@ -132,6 +132,10 @@ target_link_libraries(local_waypoint_follower ${catkin_LIBRARIES})
 add_executable(local_waypoint_transducer src/local_waypoint_transducer.cpp)
 add_dependencies(local_waypoint_transducer ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(local_waypoint_transducer ${catkin_LIBRARIES})
+
+add_executable(keyboard_interface src/keyboard_interface.cpp)
+add_dependencies(keyboard_interface ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(keyboard_interface ${catkin_LIBRARIES})
 # add_dependencies(local_waypoint_follower modudculab_ros_generate_messages_cpp)
 
 ## Add cmake target dependencies of the library

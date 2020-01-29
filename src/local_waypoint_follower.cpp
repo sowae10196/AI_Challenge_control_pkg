@@ -23,9 +23,15 @@ void state_cb(const mavros_msgs::State::ConstPtr& msg){
 
 geometry_msgs::PoseStamped pose;
 void local_waypoint_cb(const geometry_msgs::PoseStamped msg){
-    pose.pose.position.x = msg.pose.position.x;
-    pose.pose.position.y = msg.pose.position.y;
-    pose.pose.position.z = msg.pose.position.z;
+    // pose.header.stamp = msg.header.stamp;
+    // pose.pose.position.x = msg.pose.position.x;
+    // pose.pose.position.y = msg.pose.position.y;
+    // pose.pose.position.z = msg.pose.position.z;
+    // pose.pose.orientation.w = msg.pose.orientation.w;
+    // pose.pose.orientation.x = msg.pose.orientation.x;
+    // pose.pose.orientation.y = msg.pose.orientation.y;
+    // pose.pose.orientation.z = msg.pose.orientation.z;
+    pose = msg;
 }
 
 int main(int argc, char **argv)
@@ -61,7 +67,11 @@ int main(int argc, char **argv)
     pose.pose.position.x = 0;
     pose.pose.position.y = 0;
     pose.pose.position.z = 2;
-
+    pose.pose.orientation.w = 0;
+    pose.pose.orientation.x = 0;
+    pose.pose.orientation.y = 0;
+    pose.pose.orientation.z = 1;
+    
     //send a few setpoints before starting
     for(int i = 100; ros::ok() && i > 0; --i){
         local_pos_pub.publish(pose);

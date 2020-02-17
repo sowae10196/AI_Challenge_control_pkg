@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(control_pkg)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -136,6 +136,11 @@ target_link_libraries(local_waypoint_transducer ${catkin_LIBRARIES})
 add_executable(keyboard_interface src/keyboard_interface.cpp)
 add_dependencies(keyboard_interface ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(keyboard_interface ${catkin_LIBRARIES})
+
+add_executable(local_waypoint_publisher src/local_waypoint_publisher.cpp)
+add_dependencies(local_waypoint_publisher ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(local_waypoint_publisher ${catkin_LIBRARIES})
+
 # add_dependencies(local_waypoint_follower modudculab_ros_generate_messages_cpp)
 
 ## Add cmake target dependencies of the library

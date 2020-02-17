@@ -22,7 +22,7 @@ void state_cb(const mavros_msgs::State::ConstPtr& msg){
 }
 
 geometry_msgs::PoseStamped pose;
-void local_waypoint_cb(const geometry_msgs::PoseStamped msg){
+void local_waypoint_cb(const geometry_msgs::PoseStamped::ConstPtr& msg){
     // pose.header.stamp = msg.header.stamp;
     // pose.pose.position.x = msg.pose.position.x;
     // pose.pose.position.y = msg.pose.position.y;
@@ -31,7 +31,7 @@ void local_waypoint_cb(const geometry_msgs::PoseStamped msg){
     // pose.pose.orientation.x = msg.pose.orientation.x;
     // pose.pose.orientation.y = msg.pose.orientation.y;
     // pose.pose.orientation.z = msg.pose.orientation.z;
-    pose = msg;
+    pose = *msg;
 }
 
 int main(int argc, char **argv)
